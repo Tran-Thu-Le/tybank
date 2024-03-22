@@ -50,7 +50,7 @@
 
 #let dapandung = caua
 
-#let loigiai = [Rút $t$ ta được $t = (x-1)/2=(y-1)/(-3)$. Nên #pttq là: $-3(x-1) = 2(y-1) <=>  3x+2y -5=0$]
+#let loigiai = [Rút $t$ ta được $display(t = (x-1)/2=(y-1)/(-3))$. Nên #pttq là: $-3(x-1) = 2(y-1) <=>  3x+2y -5=0$]
 
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 

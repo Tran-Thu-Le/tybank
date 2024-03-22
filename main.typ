@@ -37,15 +37,15 @@
   title: "Đề thi thử Toán 10 GHK2",
   authors: ("Thời gian: 90p, Số câu: " + str(so_cau_hoi)+"TN, Mã đề: 003",),
 )
-= Trắc nghiệm 
-#v(2em)
+= Trắc nghiệm xxxyyyzzz
+#v(1em)
 #let dapan =()
 #for i in range(so_cau_hoi) {
   let permuted_index = hoanvi_cauhoi.at(i)
-  print(cau.at(permuted_index), i+1, show_answer, hoanvi_dapan.at(permuted_index))
+  print(i+1, cau.at(permuted_index), show_answer, hoanvi_dapan.at(i))
 
 
-  let dapani = [Câu #str(i+1). #vitri_to_abcd(lay_dapan(cau.at(permuted_index), hoanvi_dapan.at(permuted_index)))]
+  let dapani = [Câu #str(i+1). #position_to_abcd(get_position_of_correct_answer_after_permutation(cau.at(permuted_index), hoanvi_dapan.at(i)))]
   dapan.push(dapani)
   
 }
