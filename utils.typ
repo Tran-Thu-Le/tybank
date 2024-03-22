@@ -32,25 +32,9 @@
   return choice 
 } 
 
-#let get_original_position_of_correct_answer(question) = {
-  let cac_dapan = (
-      question.choice0, 
-      question.choice1,
-      question.choice2,
-      question.choice3,
-  )
-  let dapandung_vitri_bandau = 0
-  for i in (0,1,2,3) {
-    if cac_dapan.at(i) == question.correct_answer {
-      dapandung_vitri_bandau = i 
-      break
-    }    
-  }
-  return dapandung_vitri_bandau
-}
 
 #let get_position_of_correct_answer_after_permutation(question, permutation) = {
-  let dapandung_vitri_bandau = get_original_position_of_correct_answer(question) 
+  let dapandung_vitri_bandau = question.correct_choice 
   for i in (0,1,2,3) {
     if dapandung_vitri_bandau == permutation.at(i) {
       return i
@@ -81,7 +65,7 @@
       question.choice3,
   )
 
-  let dapandung_vitri_bandau = get_original_position_of_correct_answer(question)
+  let dapandung_vitri_bandau = question.correct_choice
 
   for i in (0,1,2,3)  {
     let dapan_kytu = format_a_choice(choice: dapan_nhan.at(i), correct: correct and permutation.at(i) == dapandung_vitri_bandau)

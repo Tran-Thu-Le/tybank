@@ -31,7 +31,7 @@
 #let choice2 = [$display(cases(x= t, y= 1+t))$]
 #let choice3 = [$display(cases(x= 2t, y= 1+t))$]
 
-#let correct_answer = choice0
+#let correct_choice = 0
 
 #let solution = [Ta có xét điểm $M_0(0, 1)$ thuộc $Delta$. Vì $Delta$ có vector pháp tuyến $vector(n)=(1,1)$, suy ra vector chỉ phương $vector(u)=(1, -1)$. Từ đó áp dụng công thức #ptts.]
 
@@ -44,7 +44,7 @@
   "choice1": choice1,
   "choice2": choice2,
   "choice3": choice3,
-  "correct_answer": correct_answer,
+  "correct_choice": correct_choice,
   "solution": solution,
   "tags": tags
 )
@@ -61,7 +61,7 @@
 #let choice2 = [$3x-2y-1=0$]
 #let choice3 = [$2x+3y-5=0$]
 
-#let correct_answer = choice0
+#let correct_choice = 0
 
 #let solution = [Rút $t$ ta được $display(t = (x-1)/2=(y-1)/(-3))$. Nên #pttq là: $-3(x-1) = 2(y-1) <=>  3x+2y -5=0$]
 
@@ -74,7 +74,7 @@
   "choice1": choice1,
   "choice2": choice2,
   "choice3": choice3,
-  "correct_answer": correct_answer,
+  "correct_choice": correct_choice,
   "solution": solution,
   "tags": tags
 )
@@ -90,7 +90,7 @@
 #let choice2 = [$-2x-y +6=0$ ]
 #let choice3 = [$2x+y-1=0$]
 
-#let correct_answer = choice0
+#let correct_choice = 0
 
 #let solution = [Chọn $vector(u)= vector(A B) = (2, 1)$, suy ra $vector(n) = (-1, 2)$. Ta chọn điểm $A(0, 1)$ thuộc đường thẳng (ta cũng có thể chọn $B$). #Pttq có dạng $-(x-0)+2(y-1)=0 <=> -x+2y -2=0$.]
 
@@ -103,7 +103,7 @@
   "choice1": choice1,
   "choice2": choice2,
   "choice3": choice3,
-  "correct_answer": correct_answer,
+  "correct_choice": correct_choice,
   "solution": solution,
   "tags": tags
 )
@@ -121,7 +121,7 @@
 #let choice2 = [$2x-y +1=0$]
 #let choice3 = [$2x-y-1=0$]
 
-#let correct_answer = choice0
+#let correct_choice = 0
 
 #let solution = [Vì vector pháp tuyến của $Delta$, đặt là $vector(n)=(2, 1)$, là chỉ phương của $Delta'$ (hãy vẽ hình để kiểm tra). Nên vector pháp tuyến của $Delta'$ là $vector(n')=(-1, 2)$. Vậy #pttq của $Delta'$ là $-(x-0)+2(y-1) <=> -x+2y-2=0$.]
 
@@ -134,7 +134,7 @@
   "choice1": choice1,
   "choice2": choice2,
   "choice3": choice3,
-  "correct_answer": correct_answer,
+  "correct_choice": correct_choice,
   "solution": solution,
   "tags": tags
 )
@@ -151,7 +151,7 @@
 #let choice2 = [$sqrt(5)$]
 #let choice3 = [$sqrt(7)$]
 
-#let correct_answer = choice2
+#let correct_choice = 2
 
 #let solution = [
   - _Cách 1._ Áp dụng công thức khoảng cách giữa hai đường thẳng song song được $ d(Delta_1, Delta_2)= (|6-1|)/sqrt(1+(-2)^2)=sqrt(5) $.
@@ -166,7 +166,7 @@
   "choice1": choice1,
   "choice2": choice2,
   "choice3": choice3,
-  "correct_answer": correct_answer,
+  "correct_choice": correct_choice,
   "solution": solution,
   "tags": tags
 )
@@ -183,7 +183,7 @@
 #let choice2 = [$90^o$]
 #let choice3 = [$120^o$]
 
-#let correct_answer = choice2
+#let correct_choice = 2
 
 #let solution = [
   - _Cách 1._ Tích hai hệ số góc bằng $-1$ nên hai đường thẳng vuông góc với nhau.
@@ -201,7 +201,7 @@
   "choice1": choice1,
   "choice2": choice2,
   "choice3": choice3,
-  "correct_answer": correct_answer,
+  "correct_choice": correct_choice,
   "solution": solution,
   "tags": tags
 )
@@ -217,7 +217,7 @@
 #let choice2 =  [trùng nhau]
 #let choice3 = [không xác định]
 
-#let correct_answer = choice1
+#let correct_choice = 1
 
 #let solution = [Đưa hai đường thẳng đã cho về #pttq 
 $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
@@ -234,7 +234,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
   "choice1": choice1,
   "choice2": choice2,
   "choice3": choice3,
-  "correct_answer": correct_answer,
+  "correct_choice": correct_choice,
   "solution": solution,
   "tags": tags
 )
@@ -250,7 +250,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
 #let choice2 = [$x+y=1$]
 #let choice3 = [$x+y=-1$]
 
-#let correct_answer = choice1
+#let correct_choice = 1
 
 #let solution = [Gọi $Delta$ là đường trung trực của $B C$. Ta có $Delta$ đi qua trung điểm $M$ của $B C$ và nhận $vector(B C)$ làm vector pháp tuyến. Ta tính được $M(2, 1)$ (trung bình tọa độ của $B$ và $C$) và $vector(n)= vector(B C)=(2, -2)$ (tọa độ $C$ trừ tọa độ $B$). #Pttq $Delta: 2(x-2)-2(y-1)=0 <=> 2x-2y-2=0$. Ta có thể viết lại $Delta: y=x-1$.]
 
@@ -263,7 +263,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
   "choice1": choice1,
   "choice2": choice2,
   "choice3": choice3,
-  "correct_answer": correct_answer,
+  "correct_choice": correct_choice,
   "solution": solution,
   "tags": tags
 )
@@ -279,7 +279,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
 #let choice2 = [$y=0$]
 #let choice3 = [$y=2$]
 
-#let correct_answer = choice3
+#let correct_choice = 3
 
 #let solution = [Ta có $B(1, 2)$ và $vector(u)=vector(A C)=(3, 0)$, suy ra $vector(n)=(0, 3)$. Nên có $0(x-1)+3(y-2)=0 <=> y=2$.]
 
@@ -292,7 +292,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
   "choice1": choice1,
   "choice2": choice2,
   "choice3": choice3,
-  "correct_answer": correct_answer,
+  "correct_choice": correct_choice,
   "solution": solution,
   "tags": tags
 )
@@ -306,12 +306,12 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
 #let stem = [Trong tam giác $Delta A B C$, biết //$A(1, 3), B(0, 0)$,
 $C(4,0)$. Biết phương trình đường cao $A H: y=x$ và đường cao $B K: x=1$. Tìm #pttq đường cao $C P$.]
 
-#let choice0 = [$x+3y-8=0$]
-#let choice1 = [$x+3y-4=0$]
-#let choice2 = [$x+2y-4=0$]
-#let choice3 = [$x+2y-8=0$]
+#let choice0 = [#Pttq $C P: x+3y-8=0$]
+#let choice1 = [#Pttq $C P: x+3y-4=0$]
+#let choice2 = [#Pttq $C P: x+2y-4=0$]
+#let choice3 = [#Pttq $C P: x+2y-8=0$]
 
-#let correct_answer = choice1
+#let correct_choice = 1
 
 #let solution = [Gọi $X$ là trực tâm là giao của $A H$ và $B K$. ta có $X=(1,1)$. Đường cao $C P$ cũng chính là $C X$. Ta có điểm $C(4, 0)$ và $vector(u)= vector(C X)=(-3, 1)$ hay $vector(n)=(1,3)$. Nên $1(x-4)+3(y-0)=0 <=> x+3y -4=0.$]
 
@@ -324,7 +324,7 @@ $C(4,0)$. Biết phương trình đường cao $A H: y=x$ và đường cao $B K
   "choice1": choice1,
   "choice2": choice2,
   "choice3": choice3,
-  "correct_answer": correct_answer,
+  "correct_choice": correct_choice,
   "solution": solution,
   "tags": tags
 )
