@@ -1,8 +1,6 @@
-#import "macros.typ": *
-#import "template.typ": *
-// #import "utils.typ": *
-#import "bank.typ": cau1, cau2, cau3, cau4, cau5, cau6, cau7, cau8, cau9, cau10
 #import "@preview/suiji:0.1.0": *
+#import "template.typ": *
+#import "bank.typ": cau1, cau2, cau3, cau4, cau5, cau6, cau7, cau8, cau9, cau10
 #let show_answer = true
 // #let show_answer = false
 #let permute_bool = true

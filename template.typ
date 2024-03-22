@@ -50,45 +50,41 @@
 
 
 // template for displaying question, choices and solution
-#let layout_a_question(stt, cautracnghiem,  inloigiai, hoanvi) = [
-  #if inloigiai {[#line(length: 100%)]}
-  #text(blue)[*Câu #stt.*] #cautracnghiem.cauhoi 
+#let layout_a_question(order, aquestion,  show_answer, permutation) = [
 
-  #let noidung_dinhdang = format_choices(cautracnghiem, hoanvi, correct: inloigiai)
+  // 1. Draw a line in show_answer mode
+  #if show_answer {[#line(length: 100%)]}
 
-  #display_choices(noidung_dinhdang, textwidth)
+  // 2. Display stem
+  // #text(blue)[*Câu #order.*] #aquestion.cauhoi 
+  #text(blue)[*Câu #order.*] #aquestion.stem // cau hoi in Vietnameses
 
-  #if inloigiai  [*Lời giải.* #cautracnghiem.loigiai \ ] else  []
 
+  // 3. Format and display choices
+  #let formatted_choices = format_choices(aquestion, permutation, correct: show_answer)
+  #display_choices(formatted_choices, textwidth)
+
+  // 4. Show answer
+  #if show_answer  [*Lời giải.* #aquestion.solution \ ] else  []
 ] // layout_a_question()
 
 #let layout_questions(questions, show_answer, permute_bool, seed) = {
   let number_of_questions = questions.len()
-  let hoanvi_dapan = permute_choices(seed, number_of_questions, permute_bool)
-  let hoanvi_cauhoi = permute_questions(seed, number_of_questions, permute_bool)
+  let permuted_choices = permute_choices(seed, number_of_questions, permute_bool)
+  let permuted_questions = permute_questions(seed, number_of_questions, permute_bool)
 
-  // print(permute_bool)
-  // print(hoanvi_dapan)
-  // print(hoanvi_cauhoi)
-
-
-
-  // show: project.with(
-  //   title: "Đề thi thử Toán 10 GHK2",
-  //   authors: ("Thời gian: 90p, Số câu: " + str(number_of_questions)+"TN, Mã đề: 003",),
-  // )
 
   [= Trắc nghiệm \ ]
   v(1em)
-  let dapan =()
+  let answers =()
   for i in range(number_of_questions) {
-    let permuted_index = hoanvi_cauhoi.at(i)
-    layout_a_question(i+1, questions.at(permuted_index), show_answer, hoanvi_dapan.at(i))
+    let permuted_index = permuted_questions.at(i)
+    layout_a_question(i+1, questions.at(permuted_index), show_answer, permuted_choices.at(i))
 
 
-    let dapandung_sauhoanvi = position_to_abcd(get_position_of_correct_answer_after_permutation(questions.at(permuted_index), hoanvi_dapan.at(i)))
-    let dapani = [Câu #str(i+1). #dapandung_sauhoanvi]
-    dapan.push(dapani)
+    let correct_choice_after_perm = position_to_abcd(get_position_of_correct_answer_after_permutation(questions.at(permuted_index), permuted_choices.at(i)))
+    let dapani = [Câu #str(i+1). #correct_choice_after_perm]
+    answers.push(dapani)
     
   }
 
@@ -100,7 +96,7 @@
       if calc.rem(i, 5)==0 {
         [\ ]
       }
-      [#dapan.at(i) \ ]
+      [#answers.at(i) \ ]
       
     }
   }

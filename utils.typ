@@ -1,21 +1,12 @@
 #import "@preview/suiji:0.1.0": *
 
-
-// #let permute_choices(random_seed, permute_bool: false) = {
-//     let (_, perm) = shuffle(random_seed, range(4))
-//     // [seed #s \ ]
-//     return perm 
-// }
-
 #let print(x) = [#x\ ]
 
 #let permute_choices(random_seed,
                     number_of_questions,
                     permute_bool) = {
     let perm = range(number_of_questions).map(x=>range(4))
-    // print[I am in utils.typ: #permute_bool]
     if permute_bool {
-      // perm = range(number_of_questions).map(x=> shuffle(random_seed, range(4)).at(1))
       for i in range(number_of_questions) {
         (random_seed, perm.at(i)) = shuffle(random_seed, range(4))
       }
@@ -43,14 +34,14 @@
 
 #let get_original_position_of_correct_answer(question) = {
   let cac_dapan = (
-      question.caua, 
-      question.caub,
-      question.cauc,
-      question.caud,
+      question.choice0, 
+      question.choice1,
+      question.choice2,
+      question.choice3,
   )
   let dapandung_vitri_bandau = 0
   for i in (0,1,2,3) {
-    if cac_dapan.at(i) == question.dapandung {
+    if cac_dapan.at(i) == question.correct_answer {
       dapandung_vitri_bandau = i 
       break
     }    
@@ -84,10 +75,10 @@
   let noidung_dinhdang = ()
   let dapan_nhan = ("A", "B", "C", "D") 
   let luachon_noidung = (
-      question.caua, 
-      question.caub,
-      question.cauc,
-      question.caud,
+      question.choice0, 
+      question.choice1,
+      question.choice2,
+      question.choice3,
   )
 
   let dapandung_vitri_bandau = get_original_position_of_correct_answer(question)
@@ -135,7 +126,6 @@
 } 
 
 #let display_choices(choices, textwidth) = {
-  // [This is display_choices function \ ]
   context {
     let widthof(x) = measure(x).width // measure() can only be called inside context
     let cau-dai-nhat = calc.max(widthof(choices.at(0)),
@@ -162,5 +152,5 @@
       )
     }
   } // end of context
-}
+} // end of display_choices()
 
