@@ -9,7 +9,16 @@
 #let marginheight = margin-percent*pageheight 
 #let textwidth = text-percent*pagewidth
 #let textheight = text-percent*pageheight 
-
+#let watermark = rotate(24deg, text(80pt, fill: rgb("E7DCFF"))[*Tran Thu Le*])
+#let footer =  context [
+  #line(length: 100%, stroke: (paint: blue, thickness: 2pt, cap: "round"))
+  #link("https://www.facebook.com/TTranThuLe/")[#underline(text(blue)[Tran Thu Le])]
+  #h(1fr)
+  #counter(page).display(
+    "1/1",
+    both: true,
+  )
+]
 #let project(title: "", authors: (), body) = {
   // Set the document's basic properties.
   set document(author: authors, title: title)
@@ -18,6 +27,8 @@
             margin: (x: marginwidth, y: marginheight),
             width: pagewidth,
             height: pageheight,
+            background: watermark,
+            footer: footer
   )
 
   set heading(numbering: "1.1.")
