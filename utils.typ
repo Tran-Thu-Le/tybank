@@ -138,3 +138,26 @@
   } // end of context
 } // end of display_choices()
 
+#let display_list_of_correct_choices(questions, permuted_questions, permuted_choices) = {
+  let number_of_questions = questions.len()
+
+  let answers =()
+  for i in range(number_of_questions) {
+    let permuted_index = permuted_questions.at(i)
+    let correct_choice_after_perm = position_to_abcd(get_position_of_correct_answer_after_permutation(questions.at(permuted_index), permuted_choices.at(i)))
+    let dapani = [Câu #str(i+1). #correct_choice_after_perm]
+    answers.push(dapani)
+    
+  }
+
+
+
+  for i in range(number_of_questions) {
+    if calc.rem(i, 5)==0 {
+      [\ ]
+    }
+    [#answers.at(i) \ ]
+    
+  }
+}
+

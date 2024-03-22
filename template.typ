@@ -68,37 +68,37 @@
   #if show_answer  [*Lời giải.* #aquestion.solution \ ] else  []
 ] // layout_a_question()
 
-#let layout_questions(questions, show_answer, permute_bool, seed) = {
+#let layout_questions(questions, show_answer, permuted_questions, permuted_choices) = {
   let number_of_questions = questions.len()
-  let permuted_choices = permute_choices(seed, number_of_questions, permute_bool)
-  let permuted_questions = permute_questions(seed, number_of_questions, permute_bool)
+  // let permuted_choices = permute_choices(seed, number_of_questions, permute_bool)
+  // let permuted_questions = permute_questions(seed, number_of_questions, permute_bool)
 
 
-  [= Trắc nghiệm \ ]
+  
   v(1em)
-  let answers =()
+  // let answers =()
   for i in range(number_of_questions) {
     let permuted_index = permuted_questions.at(i)
     layout_a_question(i+1, questions.at(permuted_index), show_answer, permuted_choices.at(i))
 
 
-    let correct_choice_after_perm = position_to_abcd(get_position_of_correct_answer_after_permutation(questions.at(permuted_index), permuted_choices.at(i)))
-    let dapani = [Câu #str(i+1). #correct_choice_after_perm]
-    answers.push(dapani)
+    // let correct_choice_after_perm = position_to_abcd(get_position_of_correct_answer_after_permutation(questions.at(permuted_index), permuted_choices.at(i)))
+    // let dapani = [Câu #str(i+1). #correct_choice_after_perm]
+    // answers.push(dapani)
     
   }
 
 
-  if show_answer {
-    // pagebreak()
-    [= Đáp án Mã đề: 003]
-    for i in range(number_of_questions) {
-      if calc.rem(i, 5)==0 {
-        [\ ]
-      }
-      [#answers.at(i) \ ]
+  // if show_answer {
+  //   // pagebreak()
+  //   [= Đáp án Mã đề: 003]
+  //   for i in range(number_of_questions) {
+  //     if calc.rem(i, 5)==0 {
+  //       [\ ]
+  //     }
+  //     [#answers.at(i) \ ]
       
-    }
-  }
+  //   }
+  // }
 
 }
