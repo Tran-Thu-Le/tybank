@@ -28,6 +28,7 @@
   let choice = [*#choice*]
   if correct {
     choice = highlight(underline(choice))
+    // choice = inline(circle(fill: yellow, height: 2em, stroke: black)[#align(center)[#choice]])
   }
   return choice 
 } 
@@ -57,7 +58,7 @@
 
 #let format_choices(question, permutation, correct: false)={
   let noidung_dinhdang = ()
-  let dapan_nhan = ("A", "B", "C", "D") 
+  let dapan_nhan = ("A.", "B.", "C.", "D.") 
   let luachon_noidung = (
       question.choice0, 
       question.choice1,
@@ -69,7 +70,7 @@
 
   for i in (0,1,2,3)  {
     let dapan_kytu = format_a_choice(choice: dapan_nhan.at(i), correct: correct and permutation.at(i) == dapandung_vitri_bandau)
-    noidung_dinhdang.push([#(dapan_kytu + ". " +  luachon_noidung.at(permutation.at(i)))])
+    noidung_dinhdang.push([#(dapan_kytu + " " +  luachon_noidung.at(permutation.at(i)))])
   }
   return noidung_dinhdang
 }
