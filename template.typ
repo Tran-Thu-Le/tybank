@@ -50,13 +50,59 @@
 
 
 // template for displaying question, choices and solution
-#let print(stt, cautracnghiem,  inloigiai, hoanvi) = [
+#let layout_a_question(stt, cautracnghiem,  inloigiai, hoanvi) = [
+  #if inloigiai {[#line(length: 100%)]}
   #text(blue)[*Câu #stt.*] #cautracnghiem.cauhoi 
 
   #let noidung_dinhdang = format_choices(cautracnghiem, hoanvi, correct: inloigiai)
 
   #display_choices(noidung_dinhdang, textwidth)
 
-  #if inloigiai  [*Lời giải.* #cautracnghiem.loigiai \ #line(length: 100%) ] else  []
+  #if inloigiai  [*Lời giải.* #cautracnghiem.loigiai \ ] else  []
 
-] // end of print()
+] // layout_a_question()
+
+#let layout_questions(questions, show_answer, permute_bool, seed) = {
+  let number_of_questions = questions.len()
+  let hoanvi_dapan = permute_choices(seed, number_of_questions, permute_bool)
+  let hoanvi_cauhoi = permute_questions(seed, number_of_questions, permute_bool)
+
+  // print(permute_bool)
+  // print(hoanvi_dapan)
+  // print(hoanvi_cauhoi)
+
+
+
+  // show: project.with(
+  //   title: "Đề thi thử Toán 10 GHK2",
+  //   authors: ("Thời gian: 90p, Số câu: " + str(number_of_questions)+"TN, Mã đề: 003",),
+  // )
+
+  [= Trắc nghiệm \ ]
+  v(1em)
+  let dapan =()
+  for i in range(number_of_questions) {
+    let permuted_index = hoanvi_cauhoi.at(i)
+    layout_a_question(i+1, questions.at(permuted_index), show_answer, hoanvi_dapan.at(i))
+
+
+    let dapandung_sauhoanvi = position_to_abcd(get_position_of_correct_answer_after_permutation(questions.at(permuted_index), hoanvi_dapan.at(i)))
+    let dapani = [Câu #str(i+1). #dapandung_sauhoanvi]
+    dapan.push(dapani)
+    
+  }
+
+
+  if show_answer {
+    // pagebreak()
+    [= Đáp án Mã đề: 003]
+    for i in range(number_of_questions) {
+      if calc.rem(i, 5)==0 {
+        [\ ]
+      }
+      [#dapan.at(i) \ ]
+      
+    }
+  }
+
+}

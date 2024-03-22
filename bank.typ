@@ -41,7 +41,7 @@
 // --------------------------
 //    Cau 2
 // --------------------------
-#let cauhoi = [#Pttq của đường thẳng $Delta: cases(x=1+2t, y=1-3t)$ là:]
+#let cauhoi = [#Pttq của đường thẳng $Delta: display(cases(x=1+2t, y=1-3t))$ là:]
 
 #let caua = [$3x+2y-5=0$]
 #let caub = [$-3x+2y +1=0$]

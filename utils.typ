@@ -1,14 +1,35 @@
 #import "@preview/suiji:0.1.0": *
 
 
-#let permute_choices(random_seed) = {
-    let (s, perm) = shuffle(random_seed, range(4))
-    [seed #s \ ]
+// #let permute_choices(random_seed, permute_bool: false) = {
+//     let (_, perm) = shuffle(random_seed, range(4))
+//     // [seed #s \ ]
+//     return perm 
+// }
+
+#let print(x) = [#x\ ]
+
+#let permute_choices(random_seed,
+                    number_of_questions,
+                    permute_bool) = {
+    let perm = range(number_of_questions).map(x=>range(4))
+    // print[I am in utils.typ: #permute_bool]
+    if permute_bool {
+      // perm = range(number_of_questions).map(x=> shuffle(random_seed, range(4)).at(1))
+      for i in range(number_of_questions) {
+        (random_seed, perm.at(i)) = shuffle(random_seed, range(4))
+      }
+    }
     return perm 
 }
 
-#let permute_questions(random_seed, number_of_questions) = {
-  let (_, hoanvi) = shuffle(random_seed, range(number_of_questions))
+#let permute_questions(random_seed,
+                      number_of_questions,
+                      permute_bool) = {
+  let hoanvi = range(number_of_questions) 
+  if permute_bool {                      
+    hoanvi = shuffle(random_seed, range(number_of_questions)).at(1)
+  }
   return hoanvi
 }
 
