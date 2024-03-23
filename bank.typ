@@ -1,4 +1,12 @@
 // #import "macros.typ": *
+
+
+//the variable will contain all the following questions
+// please do not delete it
+#let questions = ()
+
+
+
 // ----------------------------------------
 //      Macros
 // ----------------------------------------
@@ -11,13 +19,12 @@
 // #let vara = 5
 // #let vara = 7
 // #let vara = 9
-#let square(x) = calc.pow(x, 2)
 #let pttq = [phương trình tổng quát]
 #let Pttq = [Phương trình tổng quát]
-
 #let ptts = [phương trình tham số]
 #let Ptts = [Phương trình tham số]
 #let vector(x)=$arrow(#x)$
+#let square(x) = calc.pow(x, 2)
 
 // --------------------------
 //    Cau 1 
@@ -38,7 +45,7 @@
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
 // template
-#let cautracnghiem = (
+#let aquestion = (
   "stem": stem,
   "choice0": choice0,
   "choice1": choice1,
@@ -49,7 +56,8 @@
   "tags": tags
 )
 
-#let cau1 = cautracnghiem 
+#questions.push(aquestion)
+
 
 // --------------------------
 //    Cau 2
@@ -68,7 +76,7 @@
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
 // template
-#let cautracnghiem = (
+#let aquestion = (
   "stem": stem,
   "choice0": choice0,
   "choice1": choice1,
@@ -78,7 +86,7 @@
   "solution": solution,
   "tags": tags
 )
-#let cau2 = cautracnghiem 
+#questions.push(aquestion) 
 
 // --------------------------
 //    Cau 3
@@ -97,7 +105,7 @@
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "liên tục")
 
 // template
-#let cautracnghiem = (
+#let aquestion = (
   "stem": stem,
   "choice0": choice0,
   "choice1": choice1,
@@ -108,7 +116,7 @@
   "tags": tags
 )
 
-#let cau3 = cautracnghiem 
+#questions.push(aquestion) 
 
 // --------------------------
 //    Cau 4
@@ -128,7 +136,7 @@
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "đạo hàm cấp 1")
 
 // template
-#let cautracnghiem = (
+#let aquestion = (
   "stem": stem,
   "choice0": choice0,
   "choice1": choice1,
@@ -139,7 +147,7 @@
   "tags": tags
 )
 
-#let cau4 = cautracnghiem 
+#questions.push(aquestion) 
 
 // --------------------------
 //    Cau 5
@@ -160,7 +168,7 @@
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
 // template
-#let cautracnghiem = (
+#let aquestion = (
   "stem": stem,
   "choice0": choice0,
   "choice1": choice1,
@@ -171,7 +179,7 @@
   "tags": tags
 )
 
-#let cau5 = cautracnghiem 
+#questions.push(aquestion) 
 
 // --------------------------
 //    Cau 6
@@ -195,7 +203,7 @@
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
 // template
-#let cautracnghiem = (
+#let aquestion = (
   "stem": stem,
   "choice0": choice0,
   "choice1": choice1,
@@ -205,7 +213,7 @@
   "solution": solution,
   "tags": tags
 )
-#let cau6 = cautracnghiem 
+#questions.push(aquestion) 
 
 // --------------------------
 //    Cau 7
@@ -228,7 +236,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
 // template
-#let cautracnghiem = (
+#let aquestion = (
   "stem": stem,
   "choice0": choice0,
   "choice1": choice1,
@@ -238,7 +246,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
   "solution": solution,
   "tags": tags
 )
-#let cau7 = cautracnghiem 
+#questions.push(aquestion) 
 
 // --------------------------
 //    Cau 8
@@ -257,7 +265,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
 // template
-#let cautracnghiem = (
+#let aquestion = (
   "stem": stem,
   "choice0": choice0,
   "choice1": choice1,
@@ -267,7 +275,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
   "solution": solution,
   "tags": tags
 )
-#let cau8 = cautracnghiem 
+#questions.push(aquestion) 
 
 // --------------------------
 //    Cau 9
@@ -286,7 +294,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
 // template
-#let cautracnghiem = (
+#let aquestion = (
   "stem": stem,
   "choice0": choice0,
   "choice1": choice1,
@@ -297,7 +305,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
   "tags": tags
 )
 
-#let cau9 = cautracnghiem 
+#questions.push(aquestion) 
 
 // --------------------------
 //    Cau 10
@@ -318,7 +326,7 @@ $C(4,0)$. Biết phương trình đường cao $A H: y=x$ và đường cao $B K
 #let tags = ("chapter": 1, "difficulty": 3, "topic": "cực trị không điều kiện")
 
 // template
-#let cautracnghiem = (
+#let aquestion = (
   "stem": stem,
   "choice0": choice0,
   "choice1": choice1,
@@ -330,4 +338,5 @@ $C(4,0)$. Biết phương trình đường cao $A H: y=x$ và đường cao $B K
 )
 
 
-#let cau10 = cautracnghiem 
+#questions.push(aquestion) 
+
