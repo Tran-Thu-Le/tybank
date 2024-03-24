@@ -27,7 +27,10 @@
 #let format_a_choice(choice: str, correct: false) = {
   let choice = [*#choice*]
   if correct {
-    choice = highlight(underline(choice))
+    // choice = highlight(underline(choice))
+    // choice = rect(highlight(choice))
+    choice = box(stroke: black, inset: (x: 1pt, y: 1pt), fill: yellow)[#choice]
+
     // choice = inline(circle(fill: yellow, height: 2em, stroke: black)[#align(center)[#choice]])
   }
   return choice 
