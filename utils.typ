@@ -162,3 +162,65 @@
   }
 }
 
+
+
+
+
+
+
+// --------------------------
+//    Variation table
+// --------------------------
+
+// #let row0 = "x -oo ... 1 ... 2 ... +oo"
+// #let row1 = "y' ... - 0 + 0 - ..."
+// // #let row2 = "y +oo arrow.br 2 arrow.tr -2 arrow.br -oo"
+// #let row2 = "y +oo down 2 up -2 down -oo"
+
+#let vartab_str2typ(..strings) ={
+  let a = ()
+  for (i, astr) in strings.pos().enumerate() {
+    let items = astr.split()
+    for (i,item) in items.enumerate() {
+      if item == "..." {
+        items.at(i) = " "
+      } else if item == "up" {
+        items.at(i) = "arrow.tr"
+      } else if item == "down" {
+        items.at(i) = "arrow.br"
+      }
+    }
+
+    let items = "($"+items.join("$, $")+"$)"
+    let items = eval(items)
+    a.push(items)
+  }
+  return a
+}
+#let variation_table(..rows) = {
+  let the_rows = vartab_str2typ(..rows)
+  let n = the_rows.at(0).len()
+  let new_rows = ()
+  for (i,items) in the_rows.enumerate() {
+    for (j, item) in items.enumerate() {
+      new_rows.push(item)
+    }
+    if i< the_rows.len()-1 {
+      new_rows.push(table.hline(start: 0))
+    }
+  }
+
+  align(center, 
+  table(
+    stroke: none,
+    align: center,
+    table.vline(start: 0, x: 1),
+    columns: range(n).map(i=> auto),
+    ..new_rows
+  ))
+}
+
+
+// #variation_table(row0, row1, row2)
+
+

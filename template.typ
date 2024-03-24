@@ -1,32 +1,42 @@
 #import "utils.typ": *
 
-// A4 size
-#let pagewidth = 210mm 
-#let pageheight = 297mm
-#let text-percent = 0.8
-#let margin-percent = calc.max(1-text-percent, 0)/2
-#let marginwidth = margin-percent*pagewidth
-#let marginheight = margin-percent*pageheight 
-#let textwidth = text-percent*pagewidth
-#let textheight = text-percent*pageheight 
-#let watermark = rotate(24deg, text(80pt, fill: rgb("E7DCFF"))[*Tran Thu Le*])
-#let footer =  context [
-  #line(length: 100%, stroke: (paint: blue, thickness: 2pt, cap: "round"))
-  #link("https://www.facebook.com/TTranThuLe/")[#underline(text(blue)[Tran Thu Le])]
-  #h(1fr)
-  #counter(page).display(
-    "1/1",
-    both: true,
-  )
-]
-#let project(title: "", authors: (), body) = {
+// ---------------------------------------------
+//    Parameters of the template
+// ---------------------------------------------
+// A4 size 
+#let page_width = 210mm 
+#let page_height = 297mm
+#let text_percent = 0.8
+#let margin_percent = calc.max(1-text_percent, 0)/2
+#let margin_width = margin_percent*page_width
+#let margin_height = margin_percent*page_height 
+#let text_width = text_percent*page_width
+#let text_height = text_percent*page_height 
+
+
+// ---------------------------------------------
+//    Set project
+// ---------------------------------------------
+#let project(title: "",
+              authors: (),
+              watermark_content: content,
+              footer_left: content,
+              footer_right: content,
+              body) = {
   // Set the document's basic properties.
   set document(author: authors, title: title)
+  let watermark = rotate(24deg, text(80pt, fill: rgb("E7DCFF"), watermark_content))
+  let footer =  context [
+  #line(length: 100%, stroke: (paint: blue, thickness: 2pt, cap: "round"))
+  #footer_left
+  #h(1fr)
+  #footer_right
+]
   set page(numbering: "1",
             number-align: center,
-            margin: (x: marginwidth, y: marginheight),
-            width: pagewidth,
-            height: pageheight,
+            margin: (x: margin_width, y: margin_height),
+            width: page_width,
+            height: page_height,
             background: watermark,
             footer: footer
   )
@@ -52,17 +62,6 @@
     )
   ]
 
-  // Author information.
-  // pad(
-  //   top: 0.5em,
-  //   bottom: 0.5em,
-  //   x: 2em,
-  //   grid(
-  //     columns: (1fr,) * calc.min(3, authors.len()),
-  //     gutter: 1em,
-  //     ..authors.map(author => align(center, strong(author))),
-  //   ),
-  // )
 
   // Main body.
   set par(justify: true)
@@ -70,8 +69,9 @@
 }
 
 
-
-// template for displaying question, choices and solution
+// ---------------------------------------------
+//    Template for displaying one question, choices and solution
+// ---------------------------------------------
 #let layout_a_question(order, aquestion,  show_options, permutation) = [
   #let (show_answer, show_solution, show_tags) = (show_options.answer, show_options.solution, show_options.tags)
 
@@ -79,30 +79,32 @@
   #if show_solution {[#line(length: 100%)]}
 
   // 2. Display stem
-  // #text(blue)[*Câu #order.*] #aquestion.cauhoi 
-  #text(blue)[*Câu #order.*] #aquestion.stem // cau hoi in Vietnameses
-
+  #text(blue)[*Câu #order:*] #aquestion.stem // cau hoi in Vietnameses
 
   // 3. Format and display choices
   #let formatted_choices = format_choices(aquestion, permutation, correct: show_answer)
-  #display_choices(formatted_choices, textwidth)
+  #display_choices(formatted_choices, text_width)
 
   // 4. Show answer
-  #if show_solution  [*Lời giải.* #aquestion.solution \ ] else  []
+  #if show_solution  [*Lời giải.* #aquestion.solution \ ] 
 
+  // 4. Show answer
   #if show_tags [*Nhãn.* #aquestion.tags \ ]
-] // layout_a_question()
+] // end of layout_a_question()
 
+
+
+// ---------------------------------------------
+//    Template for displaying list of questions
+// ---------------------------------------------
 #let layout_questions(questions, show_options, permuted_questions, permuted_choices) = {
   let (show_answer, show_solution, show_tags) = (show_options.answer, show_options.solution, show_options.tags)
   let number_of_questions = questions.len()
 
-
-  
   v(1em)
   for i in range(number_of_questions) {
     let permuted_index = permuted_questions.at(i)
     layout_a_question(i+1, questions.at(permuted_index), show_options, permuted_choices.at(i))
     
   }
-}
+} // end of layout_questions()

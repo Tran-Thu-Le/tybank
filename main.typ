@@ -17,7 +17,7 @@
 
 #let seed = gen-rng(120) 
 #let permute_choices_bool = true 
-#let permute_questions_bool = true 
+#let permute_questions_bool = false 
 #let permuted_choices = permute_choices(seed, number_of_questions, permute_choices_bool)
 #let permuted_questions = permute_questions(seed, number_of_questions, permute_questions_bool)
 
@@ -32,6 +32,9 @@
 #show: project.with(
   title: "Đề thi thử Toán 10 GHK2",
   authors: ("Thời gian: 90p, Số câu: " + str(questions.len())+"TN, Mã đề: 003",),
+  watermark_content: [*Tran Thu Le*],
+  footer_left: link("https://www.facebook.com/TTranThuLe/")[#underline(text(blue)[Tran Thu Le])],
+  footer_right: counter(page).display("1/1",both: true),
 )
 
 // = Trắc nghiệm \ 

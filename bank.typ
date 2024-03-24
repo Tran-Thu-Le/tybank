@@ -1,4 +1,5 @@
 // #import "macros.typ": *
+#import "utils.typ": variation_table
 
 
 //the variable will contain all the following questions
@@ -30,7 +31,14 @@
 //    Cau 1 
 // --------------------------
 
-#let stem = [#Ptts của đường thẳng $Delta: x+y-1=0$ có phương trình:]
+#let stem = [#Ptts của đường thẳng $Delta: x+y-1=0$ có phương trình:
+
+#let row0 = "x  -oo ...  -1 ... 2   ...  +oo"
+#let row1 = "y' ... -    0  +   |   -    ..."
+#let row2 = "y  +oo down 2  up  +oo down -oo"
+#variation_table(row0, row1, row2)
+
+]
 
 #let choice0 = [$display(cases(x= t, y= 1-t))$]
 // #let choice0 = [#lorem(5)]
