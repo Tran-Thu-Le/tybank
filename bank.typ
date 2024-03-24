@@ -1,5 +1,6 @@
 // #import "macros.typ": *
 #import "utils.typ": variation_table
+#import "@preview/cetz:0.2.2": canvas, plot
 
 
 //the variable will contain all the following questions
@@ -70,7 +71,28 @@
 // --------------------------
 //    Cau 2
 // --------------------------
-#let stem = [#Pttq của đường thẳng $Delta: display(cases(x=1+2t, y=1-3t))$ là:]
+#let stem = [#Pttq của đường thẳng $Delta: display(cases(x=1+2t, y=1-3t))$ là:
+
+#align(center,
+canvas(length: 1cm, {
+  plot.plot(size: (7, 4),
+  // align: center,
+    x-tick-step: none,
+    x-ticks: ((-calc.pi, $-pi$), (0, $0$), (1, $x$), (calc.pi, $pi$)),
+    y-tick-step: 0.5,
+      {
+      plot.add-fill-between(domain: (-calc.pi, calc.pi),
+        calc.sin, // First function/data
+        calc.cos,
+        label: "diff"
+        )
+      }
+    )
+  }
+)
+)
+
+]
 
 #let choice0 = [$3x+2y-5=0$]
 #let choice1 = [$-3x+2y +1=0$]
