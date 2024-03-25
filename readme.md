@@ -7,11 +7,11 @@
 
 ## Channel log 
 
-- Add variation table (done)
-- Add plot (done)
-- align(right) figure 
-- filter questions based on tags 
+- add variation table (done)
+- add plot (done)
 - add other types of questions 
 - simplify data structure of each question in the bank 
+- align(right) figure 
+- filter questions based on tags 
 - add license 
 - reorganize repository

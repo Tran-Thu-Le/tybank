@@ -1,7 +1,8 @@
 #import "@preview/suiji:0.1.0": *
 #import "template.typ": *
 #import "utils.typ": *
-#import "bank.typ": questions
+// #import "bank.typ": questions
+#import "bank/multiple_choice_questions.typ": questions
 #let show_answer = true
 // #let show_answer = false
 // #let show_solution = true

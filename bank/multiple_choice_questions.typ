@@ -1,5 +1,5 @@
 // #import "macros.typ": *
-#import "utils.typ": variation_table
+#import "../utils.typ": variation_table
 #import "@preview/cetz:0.2.2": canvas, plot
 
 
@@ -53,7 +53,7 @@
 
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
-// data structure
+// template
 #let aquestion = (
   "stem": stem,
   "choice0": choice0,
@@ -105,7 +105,7 @@ canvas(length: 1cm, {
 
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
-// data structure
+// template
 #let aquestion = (
   "stem": stem,
   "choice0": choice0,
@@ -134,7 +134,7 @@ canvas(length: 1cm, {
 
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "liên tục")
 
-// data structure
+// template
 #let aquestion = (
   "stem": stem,
   "choice0": choice0,
@@ -165,7 +165,7 @@ canvas(length: 1cm, {
 
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "đạo hàm cấp 1")
 
-// data structure
+// template
 #let aquestion = (
   "stem": stem,
   "choice0": choice0,
@@ -197,7 +197,7 @@ canvas(length: 1cm, {
 
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
-// data structure
+// template
 #let aquestion = (
   "stem": stem,
   "choice0": choice0,
@@ -232,7 +232,7 @@ canvas(length: 1cm, {
 
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
-// data structure
+// template
 #let aquestion = (
   "stem": stem,
   "choice0": choice0,
@@ -265,7 +265,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
 
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
-// data structure
+// template
 #let aquestion = (
   "stem": stem,
   "choice0": choice0,
@@ -294,7 +294,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
 
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
-// data structure
+// template
 #let aquestion = (
   "stem": stem,
   "choice0": choice0,
@@ -323,7 +323,7 @@ $  Delta_1: y=2x-y+1=0 quad quad Delta_2: 3x+y-7=0 $
 
 #let tags = ("chapter": 1, "difficulty": 1, "topic": "giới hạn")
 
-// data structure
+// template
 #let aquestion = (
   "stem": stem,
   "choice0": choice0,
@@ -355,7 +355,7 @@ $C(4,0)$. Biết phương trình đường cao $A H: y=x$ và đường cao $B K
 
 #let tags = ("chapter": 1, "difficulty": 3, "topic": "cực trị không điều kiện")
 
-// data structure
+// template
 #let aquestion = (
   "stem": stem,
   "choice0": choice0,
