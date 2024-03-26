@@ -41,7 +41,7 @@
 )
 
 #let format_header_of_items = (
-    stem: order=>text(blue)[*Câu hỏi #order.*],
+    stem: order=>text(blue)[*Câu #order.*],
     result: [*Kết quả.* ],
     solution: [*Lời giải.* ],
     tags: [*Nhãn.* ],
@@ -50,17 +50,17 @@
 = Multiple choices
 
 // Hello   xxx yy
-// #layout_questions(questions, show_options,   permuted_questions, permuted_choices)
-
-#format-mcq(bank-mc.at(0), order: 1, format: format_header_of_items)
+// #layout_questions(questions, show_options,   permuted_questions, permuted_order)
+#let permuted_order = (3,0, 2,1)
+#format-mcq(bank-mc.at(0), order: 1, format: format_header_of_items, permuted_order: permuted_order)
 
 
 
 = True False questions
-#format-tfq(bank-tf.at(1), order: 2, format: format_header_of_items )
+#let permuted_order = (0,3,2,1)
+#format-tfq(bank-tf.at(1), order: 2, format: format_header_of_items, permuted_order: permuted_order)
 
 = Short answer 
-
 #format-saq(bank-sa.at(0), order: 3, format: format_header_of_items )
 
 

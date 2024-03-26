@@ -226,4 +226,11 @@
 
 // #variation_table(row0, row1, row2)
 
+#let permute_array(array, order) = {
+  // sort the array according to the order
+  let n = array.len() // == order.len()
+  let new_array = range(n).map(i => array.at(order.at(i)))
+  return new_array
+}
+
 
