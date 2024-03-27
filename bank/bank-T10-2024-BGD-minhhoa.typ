@@ -78,10 +78,10 @@
   Tập hợp rỗng là
 ]
 
-#let choice0 = [tập hợp có đúng $1$ phần tử.]
-#let choice1 = [tập hợp có đúng $2$ phần tử.]
-#let choice2 = [tập hợp có vô số phần tử.]
-#let choice3 = [tập hợp không có phần tử nào.]
+#let choice0 = [tập hợp có đúng $1$ phần tử]
+#let choice1 = [tập hợp có đúng $2$ phần tử]
+#let choice2 = [tập hợp có vô số phần tử]
+#let choice3 = [tập hợp không có phần tử nào]
 #let choices =(choice0, choice1, choice2, choice3)
 
 #let result = 3

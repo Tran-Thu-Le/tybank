@@ -17,9 +17,7 @@
 // ---------------------------------------------
 //    Set project
 // ---------------------------------------------
-#let project(title: "",
-              authors: (),
-              watermark_content: content,
+#let project( watermark_content: content,
               footer_left: content,
               footer_right: content,
               body) = {
@@ -47,23 +45,6 @@
 
   set text(font: "New Computer Modern", lang: "en")
   show math.equation: set text(weight: 400)
-
-  // Title row.
-  // align(center)[
-
-  //   #let stroke = none
-  //   #let format_title(x) = text(weight: 700, 1.5em, x)
-
-  //   #grid(
-  //     columns: (1fr, 1fr),
-  //     // rows: (auto, 60pt),
-  //     gutter: 1em,
-  //     fill: none,
-  //     rect(stroke: stroke, width: 100%)[#align(center)[#format_title(title) \  \ Thời gian: 90p, Mã đề: 003]],
-  //     rect(stroke: stroke, width: 100%)[#align(left)[#format_title[*Họ tên:*] \ \ Lớp: ]]
-  //   )
-  // ]
-
 
   // Main body.
   set par(justify: true)
@@ -182,12 +163,12 @@
     [#format.result #new_results \ ]
   }
 
-  [#format.result  #atfq.result \ ]
+  if display.result [#format.result  #atfq.result \ ]
 
-  [#format.solution #atfq.solution \ ]
+  if display.solution [#format.solution #atfq.solution \ ]
 
   // [#format.tags #atfq.tags ]
-  [#format_tags(aquestion.tags, format.tags)]
+  if display.tags [#format_tags(aquestion.tags, format.tags)]
 
 
 }
