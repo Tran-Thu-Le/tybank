@@ -229,8 +229,12 @@
 #let permute_array(array, order) = {
   // sort the array according to the order
   let n = array.len() // == order.len()
-  let new_array = range(n).map(i => array.at(order.at(i)))
-  return new_array
+  if order != none {
+    let new_array = range(n).map(i => array.at(order.at(i)))
+    return new_array
+  } else {
+    return array
+  }
 }
 
 

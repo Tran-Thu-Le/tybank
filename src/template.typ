@@ -24,14 +24,14 @@
               footer_right: content,
               body) = {
   // Set the document's basic properties.
-  set document(author: authors, title: title)
+  // set document(author: authors, title: title)
   let watermark = rotate(24deg, text(80pt, fill: rgb("E7DCFF"), watermark_content))
   let footer =  context [
-  #line(length: 100%, stroke: (paint: blue, thickness: 2pt, cap: "round"))
-  #footer_left
-  #h(1fr)
-  #footer_right
-]
+    #line(length: 100%, stroke: (paint: blue, thickness: 2pt, cap: "round"))
+    #footer_left
+    #h(1fr)
+    #footer_right
+  ]
   set page(numbering: "1",
             number-align: center,
             margin: (x: margin_width, y: margin_height),
@@ -41,26 +41,28 @@
             footer: footer
   )
 
-  set heading(numbering: "1.1.")
+  // set heading(numbering: "1.1.")
+  set heading(numbering: "I.")
+
 
   set text(font: "New Computer Modern", lang: "en")
   show math.equation: set text(weight: 400)
 
   // Title row.
-  align(center)[
+  // align(center)[
 
-    #let stroke = none
-    #let format_title(x) = text(weight: 700, 1.5em, x)
+  //   #let stroke = none
+  //   #let format_title(x) = text(weight: 700, 1.5em, x)
 
-    #grid(
-      columns: (1fr, 1fr),
-      // rows: (auto, 60pt),
-      gutter: 1em,
-      fill: none,
-      rect(stroke: stroke, width: 100%)[#align(center)[#format_title(title) \  \ Thời gian: 90p, Mã đề: 003]],
-      rect(stroke: stroke, width: 100%)[#align(left)[#format_title[*Họ tên:*] \ \ Lớp: ]]
-    )
-  ]
+  //   #grid(
+  //     columns: (1fr, 1fr),
+  //     // rows: (auto, 60pt),
+  //     gutter: 1em,
+  //     fill: none,
+  //     rect(stroke: stroke, width: 100%)[#align(center)[#format_title(title) \  \ Thời gian: 90p, Mã đề: 003]],
+  //     rect(stroke: stroke, width: 100%)[#align(left)[#format_title[*Họ tên:*] \ \ Lớp: ]]
+  //   )
+  // ]
 
 
   // Main body.
@@ -180,6 +182,8 @@
     [#format.result #new_results \ ]
   }
 
+  [#format.result  #atfq.result \ ]
+
   [#format.solution #atfq.solution \ ]
 
   // [#format.tags #atfq.tags ]
@@ -281,7 +285,7 @@
 
     for i in (0,1,2,3)  {
       let dapan_kytu = format_a_choice(choice: dapan_nhan.at(i), correct: correct and permuted_order.at(i) == dapandung_vitri_bandau)
-      noidung_dinhdang.push([#(dapan_kytu + " " +  luachon_noidung.at(permuted_order.at(i)))])
+      noidung_dinhdang.push([#(dapan_kytu + " " +  luachon_noidung.at(permuted_order.at(i))).])
     }
     return noidung_dinhdang
   } // end of format_choices()

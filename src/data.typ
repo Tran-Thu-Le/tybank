@@ -131,7 +131,7 @@
 // short answer question
 #let saq( 
   stem, // content
-  results: none, // a number
+  result: none, // a number
   solution: none, // array of solution
   tags: none, // dictionary
   type: "saq", // do not change this
@@ -141,7 +141,7 @@
 
   return (
     stem: stem,
-    results: results,
+    result: result,
     solution: solution,
     tags: tags,
     var: var,
